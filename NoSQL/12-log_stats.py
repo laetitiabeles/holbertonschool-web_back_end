@@ -15,10 +15,9 @@ if __name__ == "__main__":
     print(f"{total} logs")
     print("Methods:")
     for m in method:
-        count = logs.count_documents({"method": m})
-        print(f"\tmethod {m}: {count}")
+        count = logs.count_documents({"method": method})
+        print(f"\tmethod {method}: {count}")
 
-    filter_path = {"method": "GET", "path": "/status"}
-    count_path = logs.count_documents(filter_path)
+    stats = logs.count_documents({"method": "GET", "path": "/status"})
 
-    print(f"{count_path} status check")
+    print(f"{stats} status check")
